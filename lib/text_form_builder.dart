@@ -1,7 +1,14 @@
 library text_form_builder;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+import 'package:flutter/material.dart';
+
+/// models
+part 'models/text_field_options.dart';
+part 'models/text_field_result.dart';
+
+/// widgets
+part 'widgets/text_form_builder.dart';
+part 'widgets/text_form_builder_field.dart';
+
+/// errors
+part 'errors/text_form_builder_error.dart';
