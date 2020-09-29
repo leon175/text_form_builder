@@ -20,17 +20,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(_formKey.currentWidget);
-    Future.delayed(Duration(seconds: 3)).then((value) {
-      print(_formKey.currentWidget);
-      print(_formKey.currentState);
-    });
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          key: _formKey,
           child: TextFormBuilder(
+            key: _formKey,
             children: [
               TextFormBuilderField(
                 id: "firstname",
@@ -86,7 +80,7 @@ class MyHomePage extends StatelessWidget {
                   RaisedButton(
                     child: Text('Submit'),
                     onPressed: () {
-                      // _formKey.currentState.submit();
+                      _formKey.currentState.submit();
                     },
                   ),
                 ],

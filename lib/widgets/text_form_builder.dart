@@ -11,7 +11,7 @@ class TextFormBuilder extends StatefulWidget {
   final bool closeableKeyboard;
   final EdgeInsets padding;
   final double width;
-  final Colors color;
+  final Color color;
 
   TextFormBuilder({
     Key key,
