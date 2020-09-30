@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 /// models
 part 'models/text_field_options.dart';
 part 'models/text_field_result.dart';
+part 'models/text_field_result_list.dart';
 
 /// widgets
 part 'widgets/text_form_builder.dart';

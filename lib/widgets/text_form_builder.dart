@@ -6,7 +6,7 @@ part of '../text_form_builder.dart';
 class TextFormBuilder extends StatefulWidget {
   final Widget Function(TextFieldOptions options) textFieldBuilder;
   final List<Widget> children;
-  final Function(List<TextFieldResult> data) onSubmit;
+  final Function(TextFieldResultList data) onSubmit;
   final bool submitOnLastFieldSubmitted;
   final bool closeableKeyboard;
   final EdgeInsets padding;
@@ -212,9 +212,9 @@ class TextFormBuilderState extends State<TextFormBuilder> {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       if (widget.onSubmit != null) {
-        widget.onSubmit(_formData.entries
+        widget.onSubmit(TextFieldResultList(_formData.entries
             .map((entry) => TextFieldResult(entry.key, entry.value))
-            .toList());
+            .toList()));
       }
     }
   }
