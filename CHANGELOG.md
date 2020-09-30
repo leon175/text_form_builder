@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.0.1] - 29.09.2020
+## [1.0.0] - 29.09.2020
 
 ### Added
 * Generate a form with its the boilerplate code
@@ -14,7 +14,7 @@
 ### Fixed
 * Nothing
 
-## [0.0.2] - 30.09.2020
+## [1.0.1] - 30.09.2020
 
 ## Fixed
 * Error: `onFieldSubmitted` called on `null`
