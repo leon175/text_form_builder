@@ -61,9 +61,11 @@ class TextFormBuilderState extends State<TextFormBuilder> {
         }
       });
       int fieldIndex = 0;
-      widget.children.asMap().forEach((index, field) {
+      widget.children.asMap().forEach((index, child) {
         /// Add the `fields`
-        if (field is TextFormBuilderField) {
+        if (child is TextFormBuilderField) {
+          final field = child;
+
           /// Throw an error if [TextFormBuilderField] is used but no
           /// [textFieldBuilder] was implemented
           if (widget.textFieldBuilder == null) {
@@ -86,7 +88,9 @@ class TextFormBuilderState extends State<TextFormBuilder> {
                 if (field.lines <= 1 && widget.submitOnLastFieldSubmitted) {
                   submit();
                 }
-                field.onFieldSubmitted(value);
+                if (field.onFieldSubmitted != null) {
+                  field.onFieldSubmitted(value);
+                }
               },
               onChanged: field.onChanged,
               focusNode: !field.disabled && _focusNodes.length > 1
@@ -117,7 +121,9 @@ class TextFormBuilderState extends State<TextFormBuilder> {
                   FocusScope.of(context)
                       .requestFocus(_focusNodes[actualFieldIndex]);
                 }
-                field.onFieldSubmitted(value);
+                if (field.onFieldSubmitted != null) {
+                  field.onFieldSubmitted(value);
+                }
               },
               onChanged: field.onChanged,
               focusNode: FocusNode(),
@@ -146,7 +152,9 @@ class TextFormBuilderState extends State<TextFormBuilder> {
                   FocusScope.of(context)
                       .requestFocus(_focusNodes[actualFieldIndex]);
                 }
-                field.onFieldSubmitted(value);
+                if (field.onFieldSubmitted != null) {
+                  field.onFieldSubmitted(value);
+                }
               },
               onChanged: field.onChanged,
               focusNode: !field.disabled && _focusNodes.length > 1
@@ -167,7 +175,7 @@ class TextFormBuilderState extends State<TextFormBuilder> {
           }
         } else {
           /// Add the other [Widget]s to the [Form]
-          _children.add(field);
+          _children.add(child);
         }
       });
 

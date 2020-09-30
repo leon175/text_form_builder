@@ -13,3 +13,8 @@
 
 ### Fixed
 * Nothing
+
+## [0.0.2] - 30.09.2020
+
+## Fixed
+* Error: `onFieldSubmitted` called on `null`
