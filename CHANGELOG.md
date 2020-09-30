@@ -16,5 +16,10 @@
 
 ## [1.0.1] - 30.09.2020
 
-## Fixed
+### Fixed
 * Error: `onFieldSubmitted` called on `null`
+
+## [1.0.2+3] - 30.09.2020
+
+### Added
+* `onSubmit` returns now `TextFieldResultList` which makes it easier to access a single `TextFormResult`
