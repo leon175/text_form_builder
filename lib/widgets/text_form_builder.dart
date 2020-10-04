@@ -6,7 +6,7 @@ part of '../text_form_builder.dart';
 class TextFormBuilder extends StatefulWidget {
   final Widget Function(TextFieldOptions options) textFieldBuilder;
   final List<Widget> children;
-  final Function(TextFieldResultList data) onSubmit;
+  final void Function(TextFieldResultList data) onSubmit;
   final bool submitOnLastFieldSubmitted;
   final bool closeableKeyboard;
   final EdgeInsets padding;
@@ -79,6 +79,7 @@ class TextFormBuilderState extends State<TextFormBuilder> {
               title: field.title,
               value: field.value,
               disabled: field.disabled,
+              obscureText: field.obscureText,
               lines: field.lines,
               keyboardType: field.lines > 1
                   ? TextInputType.multiline
@@ -111,6 +112,7 @@ class TextFormBuilderState extends State<TextFormBuilder> {
               title: field.title,
               value: field.value,
               disabled: field.disabled,
+              obscureText: field.obscureText,
               lines: field.lines,
               keyboardType: field.lines > 1
                   ? TextInputType.multiline
@@ -142,6 +144,7 @@ class TextFormBuilderState extends State<TextFormBuilder> {
               title: field.title,
               value: field.value,
               disabled: field.disabled,
+              obscureText: field.obscureText,
               lines: field.lines,
               keyboardType: field.lines > 1
                   ? TextInputType.multiline
@@ -208,15 +211,22 @@ class TextFormBuilderState extends State<TextFormBuilder> {
   }
 
   /// `Submit` the [Form]
-  void submit() {
-    if (_formKey.currentState.validate()) {
-      _formKey.currentState.save();
-      if (widget.onSubmit != null) {
-        widget.onSubmit(TextFieldResultList(_formData.entries
-            .map((entry) => TextFieldResult(entry.key, entry.value))
-            .toList()));
-      }
+  /// [Return]s [null] if the [Form] is `invalid`
+  TextFieldResultList submit() {
+    if (!_formKey.currentState.validate()) {
+      return null;
     }
+
+    final resultList = TextFieldResultList(_formData.entries
+        .map((entry) => TextFieldResult(entry.key, entry.value))
+        .toList());
+
+    _formKey.currentState.save();
+    if (widget.onSubmit != null) {
+      widget.onSubmit(resultList);
+    }
+
+    return resultList;
   }
 
   /// `Clear` the [Form]s `fields`

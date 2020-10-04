@@ -8,6 +8,7 @@ class TextFormBuilderField extends Widget {
   final String title;
   final String value;
   final bool disabled;
+  final bool obscureText;
   final int lines;
   final TextInputType keyboardType;
   final Function(String value) validator;
@@ -19,6 +20,7 @@ class TextFormBuilderField extends Widget {
     this.title = "",
     this.value = "",
     this.disabled = false,
+    this.obscureText = false,
     this.lines = 1,
     this.keyboardType = TextInputType.text,
     this.validator,

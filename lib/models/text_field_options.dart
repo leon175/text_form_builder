@@ -8,6 +8,7 @@ class TextFieldOptions {
   final String title;
   final String value;
   final bool disabled;
+  final bool obscureText;
   final int lines;
   final TextInputType keyboardType;
   final Function(String value) validator;
@@ -23,6 +24,7 @@ class TextFieldOptions {
     @required this.title,
     @required this.value,
     @required this.disabled,
+    @required this.obscureText,
     @required this.lines,
     @required this.keyboardType,
     @required this.validator,

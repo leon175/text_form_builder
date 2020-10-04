@@ -23,3 +23,9 @@
 
 ### Added
 * `onSubmit` returns now `TextFieldResultList` which makes it easier to access a single `TextFormResult`
+
+## [1.0.3+4] - 03.10.2020
+
+### Added
+* `TextFormBuilderField` has now the option `obscureText`
+* The `submit` method of `TextFormBuilderState` returns now `TextFieldResultList`

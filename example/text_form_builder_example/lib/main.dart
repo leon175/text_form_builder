@@ -66,6 +66,7 @@ class MyHomePage extends StatelessWidget {
                 id: "age",
                 title: "Age",
                 keyboardType: TextInputType.number,
+                obscureText: true,
               ),
               SizedBox(height: 50),
               Row(
@@ -80,7 +81,7 @@ class MyHomePage extends StatelessWidget {
                   RaisedButton(
                     child: Text('Submit'),
                     onPressed: () {
-                      _formKey.currentState.submit();
+                      print("FORM ${_formKey.currentState.submit()}");
                     },
                   ),
                 ],
@@ -102,6 +103,7 @@ class MyHomePage extends StatelessWidget {
                     focusNode: options.focusNode,
                     textInputAction: options.textInputAction,
                     onSaved: options.onSaved,
+                    obscureText: options.obscureText,
                   ),
                 ],
               );
