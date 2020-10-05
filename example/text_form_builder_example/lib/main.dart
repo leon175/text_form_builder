@@ -69,6 +69,11 @@ class MyHomePage extends StatelessWidget {
                 obscureText: true,
               ),
               SizedBox(height: 50),
+              TextFormBuilderField(
+                id: "hobby",
+                title: "Hobby",
+              ),
+              SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -81,7 +86,7 @@ class MyHomePage extends StatelessWidget {
                   RaisedButton(
                     child: Text('Submit'),
                     onPressed: () {
-                      print("FORM ${_formKey.currentState.submit()}");
+                      print("FORM ${_formKey.currentState.submit().results}");
                     },
                   ),
                 ],
@@ -110,7 +115,9 @@ class MyHomePage extends StatelessWidget {
             },
             padding: const EdgeInsets.all(50),
             onSubmit: (data) {
-              print(data);
+              print(data.results);
+              print(data.find("firstname"));
+              print(data.contains("surname"));
             },
           ),
         ),

@@ -217,11 +217,12 @@ class TextFormBuilderState extends State<TextFormBuilder> {
       return null;
     }
 
+    _formKey.currentState.save();
+
     final resultList = TextFieldResultList(_formData.entries
         .map((entry) => TextFieldResult(entry.key, entry.value))
         .toList());
 
-    _formKey.currentState.save();
     if (widget.onSubmit != null) {
       widget.onSubmit(resultList);
     }
