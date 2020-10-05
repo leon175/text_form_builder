@@ -38,3 +38,8 @@
 ### Fixed
 * `TextFieldResultList.find` throws `Bad state: no element`
 * `TextFieldResultList.results = []`
+
+## [1.0.4+6] - 05.10.2020
+
+### Changed
+* If `TextFieldResultList.find` found nothing it returns `TextFieldResult(ID, null)`

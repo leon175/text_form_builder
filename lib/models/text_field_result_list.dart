@@ -6,14 +6,10 @@ class TextFieldResultList {
   TextFieldResultList(this.results);
 
   TextFieldResult find(String id) {
-    if (contains(id)) {
-      return results.firstWhere(
-        (result) => result.id == id,
-        orElse: () => TextFieldResult(id, ""),
-      );
-    }
-
-    return null;
+    return results.firstWhere(
+      (result) => result.id == id,
+      orElse: () => TextFieldResult(id, null),
+    );
   }
 
   bool contains(String id) {
