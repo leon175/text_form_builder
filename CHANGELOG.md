@@ -43,3 +43,8 @@
 
 ### Changed
 * If `TextFieldResultList.find` found nothing it returns `TextFieldResult(ID, null)`
+
+## [1.0.5+7] - 05.10.2020
+
+### Added
+* `TextFormBuilder.getCurrentResultList` -> Get the current `TextFieldResultList` without validating or submitting the form

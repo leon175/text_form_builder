@@ -214,14 +214,12 @@ class TextFormBuilderState extends State<TextFormBuilder> {
   /// [Return]s [null] if the [Form] is `invalid`
   TextFieldResultList submit() {
     if (!_formKey.currentState.validate()) {
-      return null;
+      return TextFieldResultList([]);
     }
 
     _formKey.currentState.save();
 
-    final resultList = TextFieldResultList(_formData.entries
-        .map((entry) => TextFieldResult(entry.key, entry.value))
-        .toList());
+    final resultList = _formDataToResultList();
 
     if (widget.onSubmit != null) {
       widget.onSubmit(resultList);
@@ -230,8 +228,22 @@ class TextFormBuilderState extends State<TextFormBuilder> {
     return resultList;
   }
 
+  /// `Get` the current [TextFieldResultList] without
+  /// `validating` or `submitting` the [Form]
+  TextFieldResultList getCurrentResultList() {
+    _formKey.currentState.save();
+
+    return _formDataToResultList();
+  }
+
   /// `Clear` the [Form]s `fields`
   void reset() {
     _formKey.currentState.reset();
+  }
+
+  TextFieldResultList _formDataToResultList() {
+    return TextFieldResultList(_formData.entries
+        .map((entry) => TextFieldResult(entry.key, entry.value))
+        .toList());
   }
 }

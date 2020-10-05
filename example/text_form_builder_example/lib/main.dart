@@ -91,6 +91,14 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 50),
+              RaisedButton(
+                child: Text('GetCurrentResultList'),
+                onPressed: () {
+                  print(
+                      "FORM ${_formKey.currentState.getCurrentResultList().results}");
+                },
+              ),
             ],
             textFieldBuilder: (options) {
               return Column(
