@@ -1,6 +1,6 @@
 name: text_form_builder
 description: A flutter package to build simple forms with custom widgets more easily.
-version: 1.0.5+7
+version: 1.0.5+1
 author: Leon Schneider <leons838@gmail.com>
 homepage: https://github.com/leon175/text_form_builder.git
 
