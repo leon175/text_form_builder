@@ -6,6 +6,9 @@ class TextFieldResultList {
   TextFieldResultList(this.results);
 
   TextFieldResult find(String id) {
-    return results.firstWhere((result) => result.id == id);
+    return results.firstWhere(
+      (result) => result.id == id,
+      orElse: () => null,
+    );
   }
 }

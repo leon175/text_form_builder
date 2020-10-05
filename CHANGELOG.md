@@ -29,3 +29,8 @@
 ### Added
 * `TextFormBuilderField` has now the option `obscureText`
 * The `submit` method of `TextFormBuilderState` returns now `TextFieldResultList`
+
+## [1.0.4+4] - 05.10.2020
+
+### Fixed
+* `TextFieldResultList.find` throws `Bad state: no element`
